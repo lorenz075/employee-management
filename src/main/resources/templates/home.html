@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:replace="~{layoutBase :: head}">
+</head>
+
+<body>
+
+
+    <div th:replace="~{layoutBase :: navbar}"></div>
+
+    <div class="container">
+        <h1>Funcionários</h1>
+        <table class="table table-light">
+            <tr class="table-dark">
+                <th></th>
+                <th scope="col">Nome</th>
+                <th scope="col">Cargo</th>
+                <th scope="col">Email</th>
+                <th scope="col">Salário</th>
+                <th scope="col">Setor</th>
+                <th scope="col">Ações</th>
+            </tr>
+
+            <tr th:each="func : ${funcionarios}">
+                <th scope="row"></th>
+                <td><span th:text="${func.nome}"></span></td>
+                <td><span th:text="${func.cargo}"></span></td>
+                <td><span th:text="${func.email}"></td>
+                <td>R$<span th:text="${func.salario}"></span></td>
+                <td><span th:text="${func.setor}"></span></td>
+                <td class="buttons ">
+                    <a th:href="@{form/{id}(id=${func.id})}" th:method="get" class="btn btn-warning"><i
+                            class="fa fa-pencil"></i></a>
+                    <a th:href="@{delete/{id}(id=${func.id})}" th:method="delete" class="btn btn-danger"><i
+                            class="fa fa-trash"></i></a>
+                </td>
+            </tr>
+        </table>
+        <div class="d-flex justify-content-center">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </nav>
+        </div>
+        <a href="/form"><button class="btn btn-dark">Adicionar funcionário</button></a>
+    </div>
+</body>
+
+</html>

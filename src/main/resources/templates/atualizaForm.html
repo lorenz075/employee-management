@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:replace="~{layoutBase :: head}">
+</head>
+
+<body>
+
+    <div th:replace="~{layoutBase :: navbar}"></div>
+    <div class="container">
+        <h1 class="mb-3">Atualizar informações</h1>
+        <form class="row g-2" action="/home" th:object="${funcionario}" th:action="@{/update/{id}(id=${funcionario.id})}" method="post">
+            <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">Email</label>
+                <input th:field="*{email}" type="email" class="form-control" id="inputEmail4">
+            </div>
+            <div class="col-md-6">
+                <label for="inputNome" class="form-label">Nome</label>
+                <input th:field="*{nome}" type="text" class="form-control" id="inputNome">
+            </div>
+            <div class="col-12">
+                <label for="inputCargo" class="form-label">Cargo</label>
+                <input th:field="*{cargo}" type="text" class="form-control" id="inputCargo" placeholder="Cargo">
+            </div>
+            <div class="col-12">
+                <label for="inputSalario" class="form-label">Salário</label>
+                <input th:field="*{salario}" type="number" class="form-control" id="inputSalario" placeholder="1000,00">
+            </div>
+
+            <div class="col-md-4">
+                <label for="inputState" class="form-label">Setor</label>
+                <select th:field="*{setor}" id="inputState" class="form-select">
+                    <option value="TECNOLOGIA">Tecnologia</option>
+                    <option value="RH">RH</option>
+                    <option value="DIRETORIA">Diretoria</option>
+                </select>
+            </div>
+
+            <div class="col-12">
+                <button type="submit" class="btn btn-dark">Atualizar</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>
