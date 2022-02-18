@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head th:replace="~{layoutBase :: head}">
+</head>
+
+<body>
+
+  <div th:replace="~{layoutBase :: navbar}"></div>
+  <div class="container">
+    <h1 class="mb-3">Cadastrar novo funcionario</h1>
+    <form action="#" th:object="${funcionario}" th:action="@{/add}" method="post">
+      
+      <div th:replace="~{layoutBase :: form}"></div>
+      
+      <div class="col-12 mt-2">
+        <button type="submit" class="btn btn-dark">Cadastrar</button>
+      </div>
+    </form>
+  </div>
+
+</body>
+
+</html>
